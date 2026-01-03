@@ -11,17 +11,35 @@ html {
 	scroll-behavior: smooth;
 }
 
-
 body {
-	font-family: Arial, sans-serif;
+	font-family: 'Poppins', Arial, sans-serif;
 	color: #333;
 	line-height: 1.6;
 	background: #fff;
 }
 
-a {
-	color: inherit;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Poppins', Arial, sans-serif;
+	font-weight: 600;
+	/* medium-bold for headings */
+	letter-spacing: 0.5px;
+	color: #111;
 }
+
+p,
+li,
+a,
+span {
+	font-weight: 400;
+	/* normal weight for body text */
+	color: #444;
+}
+
 
 #skills h2,
 #portfolio h2,
@@ -31,6 +49,41 @@ a {
 	text-align: center;
 	letter-spacing: 1px;
 }
+
+.section-padding {
+	padding: 60px 0;
+}
+
+/* Fade to bottom: strong white first 1/3, then fade to transparent */
+.section-fade-to-bottom {
+	position: relative;
+	min-height: 80px;
+	/* adjust as needed */
+	background: linear-gradient(to bottom,
+			#ffffff 0%,
+			/* solid white at top */
+			#ffffff 33%,
+			/* keep solid for first 1/3 */
+			rgba(255, 255, 255, 0) 100%
+			/* fade to transparent for remaining 2/3 */
+		);
+}
+
+/* Fade to top: strong white first 1/3 from bottom, then fade to transparent */
+.section-fade-to-top {
+	position: relative;
+	min-height: 80px;
+	background: linear-gradient(to top,
+			#ffffff 0%,
+			/* solid white at bottom */
+			#ffffff 33%,
+			/* keep solid for first 1/3 from bottom */
+			rgba(255, 255, 255, 0) 100%
+			/* fade to transparent for remaining 2/3 */
+		);
+}
+
+
 
 
 /* =========================
@@ -92,9 +145,15 @@ nav a {
 }
 
 .hero-text h1 {
-	font-size: 2.8rem;
-	margin-bottom: 20px;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 700;          /* bold for emphasis */
+    font-size: 3rem;           /* slightly larger */
+    margin-bottom: 20px;
+    color: #FFD166;            /* bright, warm accent color */
+    letter-spacing: 1px;       /* modern look */
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4); /* subtle shadow for contrast */
 }
+
 
 .hero-text p {
 	font-size: 1.05rem;
@@ -111,21 +170,7 @@ nav a {
 ========================= */
 .section-light {
 	padding: 80px 0;
-	background: rgba(255, 255, 255, 0.9);
-}
-
-.section-light.about {
-	background: linear-gradient(to bottom,
-			rgba(255, 255, 255, 0.95) 0%,
-			rgba(255, 255, 255, 0.9) 60%,
-			rgba(255, 255, 255, 0) 100%);
-}
-
-#skills.section-light {
-	background: linear-gradient(to top,
-			rgba(255, 255, 255, 0.95) 0%,
-			rgba(255, 255, 255, 0.9) 60%,
-			rgba(255, 255, 255, 0) 100%);
+	background: #fff;
 }
 
 .section-dark {
@@ -133,56 +178,48 @@ nav a {
 	background: transparent;
 }
 
-.section-light h2,
-.section-dark h2 {
-	font-size: 2.4rem;
-	margin-bottom: 30px;
-}
-
 /* =========================
    PARALLAX
 ========================= */
 .parallax-wrapper {
 	position: relative;
-	background-image: url("/images/background.png");
-	background-size: contain;
+	background-image: url("../images/background.png");
+	/* relative path from CSS file */
 	background-repeat: repeat;
-	background-position: center 0px;
+	background-position: center 0;
+	background-size: contain;
 	will-change: background-position;
 }
 
 /* =========================
    SKILLS
 ========================= */
+.skills-wrapper {
+	position: relative;
+	overflow: hidden;
+}
+
 .skills {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 32px;
+	transition: transform 0.4s ease;
 }
 
 .skill-box {
-	background: linear-gradient(180deg, #ffffff, #f2f2f2);
+	background: #fff;
 	padding: 36px 34px 40px;
 	border-radius: 18px;
 	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
 	transition: transform 0.35s ease, box-shadow 0.35s ease;
 	position: relative;
 	overflow: hidden;
+	min-width: 100%;
 }
 
 .skill-box:hover {
 	transform: translateY(-6px);
 	box-shadow: 0 28px 60px rgba(0, 0, 0, 0.25);
-}
-
-.skill-box::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 4px;
-	background: linear-gradient(90deg, #000, #555);
 }
 
 .skill-box h3 {
@@ -225,6 +262,29 @@ nav a {
 	transform: scale(1.15);
 }
 
+/* Carousel buttons (mobile only) */
+.skill-prev,
+.skill-next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: #000;
+	color: #fff;
+	border: none;
+	font-size: 2rem;
+	padding: 8px 12px;
+	cursor: pointer;
+	border-radius: 6px;
+	z-index: 10;
+}
+
+.skill-prev {
+	left: 10px;
+}
+
+.skill-next {
+	right: 10px;
+}
 
 /* =========================
    PORTFOLIO GRID
@@ -361,7 +421,6 @@ nav a {
 
 .contact-icon svg {
 	color: #0077b5;
-	/* LinkedIn blue; for email, it will stay black */
 }
 
 .contact-text a {
@@ -375,7 +434,6 @@ nav a {
 	color: #0077b5;
 }
 
-
 footer {
 	background: #111;
 	color: #fff;
@@ -388,32 +446,43 @@ footer {
    RESPONSIVE
 ========================= */
 @media (max-width:900px) {
+
+	/* Hero image on top */
 	.hero-content {
 		flex-direction: column-reverse;
-		/* text below image */
 		text-align: center;
 	}
 
 	.hero-image {
 		margin-bottom: 20px;
-		/* add spacing between image and text */
 	}
 
+	/* Skills carousel */
 	.skills {
-		grid-template-columns: 1fr;
+		display: flex;
+		grid-template-columns: unset;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
 	}
 
+	.skill-box {
+		min-width: 80%;
+		scroll-snap-align: center;
+		margin-right: 16px;
+	}
+
+	.skill-prev,
+	.skill-next {
+		display: block;
+	}
+
+	/* Contact stack */
 	.contact-items {
 		flex-direction: column;
 		gap: 20px;
 	}
 
-	.skills {
-		grid-template-columns: 1fr;
-	}
-
-	.contact-items {
-		flex-direction: column;
-		gap: 20px;
+	.section-padding {
+		padding: 40px 0;
 	}
 }

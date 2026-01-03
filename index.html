@@ -8,6 +8,12 @@
 
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+		rel="stylesheet">
+
 </head>
 
 <body>
@@ -54,15 +60,10 @@
 		<!-- PARALLAX BACKGROUND -->
 		<div class="parallax-wrapper">
 
-			<!-- About -->
-			<section class="section-light about">
-				<div class="container">
-					
-				</div>
-			</section>
+			<section class="section-fade-to-bottom"></section>
 
 			<!-- Portfolio (MOVED HERE) -->
-			<section id="portfolio">
+			<section id="portfolio" class="section-padding">
 				<div class="container">
 					<h2>Portfolio</h2>
 					<div class="portfolio-grid">
@@ -82,7 +83,7 @@
 			</section>
 
 			<!-- Skills -->
-			<section id="skills" class="section-light">
+			<section id="skills" class="section-padding">
 				<div class="container">
 					<h2>Skills</h2>
 					<div class="skills">
@@ -147,6 +148,7 @@
 				</div>
 			</section>
 
+			<section class="section-fade-to-top"></section>
 
 		</div>
 
