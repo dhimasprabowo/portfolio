@@ -3,78 +3,108 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Portfolio</title>
+	<title>Dhimas Prabowo Portfolio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="stylesheet" href="css/style.css">
-	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+	<!-- Tailwind CSS CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- Poppins Font -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
 		rel="stylesheet">
 
+	<!-- Vue 3 -->
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					fontFamily: {
+						poppins: ['Poppins', 'sans-serif']
+					},
+					colors: {
+						primary: '#FFD166',
+						secondary: '#222',
+						darkbg: '#111'
+					}
+				}
+			}
+		}
+	</script>
 </head>
 
-<body>
+<body class="font-poppins text-gray-800 bg-white">
 
 	<div id="app">
 
 		<!-- Header -->
-		<header>
-			<div class="container header-content">
-				<div class="logo">
-					<a href="#top" style="text-decoration: none; color: inherit;">Home</a>
+		<header class="bg-darkbg text-white sticky top-0 z-50">
+			<div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+				<div class="font-bold text-lg">
+					<a href="#top" class="no-underline text-white">Home</a>
 				</div>
-				<nav>
-					<a href="#portfolio">Portfolio</a>
-					<a href="#skills">Skills</a>
-					<a href="#contact">Contact</a>
+				<nav class="space-x-6">
+					<a href="#portfolio" class="hover:text-primary">Portfolio</a>
+					<a href="#skills" class="hover:text-primary">Skills</a>
+					<a href="#contact" class="hover:text-primary">Contact</a>
 				</nav>
 			</div>
 		</header>
 
-
-		<!-- Hero -->
-		<section class="hero">
-			<div class="container hero-content">
-				<div class="hero-text">
-					<h1>Dhimas Prabowo</h1>
-					<p>
+		<!-- Hero Section -->
+		<section class="container bg-secondary text-white py-20 rounded-b-2xl">
+			<div
+				class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center md:space-x-12 text-center md:text-left">
+				<div class="hero-text max-w-xl">
+					<h1 class="text-5xl md:text-6xl font-bold text-primary mb-6 drop-shadow-lg">Dhimas Prabowo</h1>
+					<p class="text-gray-300 mb-4">
 						Experienced Game Developer & Designer crafting immersive strategy, RPG, and casual games.
 						Skilled in Unity, Flash, and web technologies, I build games that combine challenging mechanics
 						with engaging art and storytelling.
 					</p>
-					<p>
+					<p class="text-gray-300">
 						From award-winning mobile projects to complex Flash-era creations, I bring ideas to life with
 						innovative gameplay systems and memorable player experiences.
 					</p>
 				</div>
-				<div class="hero-image">
-					<img src="images/profile.jpg" alt="Profile">
+				<div class="hero-image mb-8 md:mb-0">
+					<img src="images/profile.jpg" alt="Profile" class="w-56 h-56 md:w-60 md:h-60 rounded-full mx-auto">
 				</div>
 			</div>
 		</section>
 
+		<!-- Parallax Wrapper -->
+		<div class="parallax-wrapper relative"
+			style="background-image: url('images/background.png'); background-repeat: repeat; background-position: center 0; background-size: contain;">
 
-		<!-- PARALLAX BACKGROUND -->
-		<div class="parallax-wrapper">
+			<!-- Fade to bottom -->
+			<section class="h-20 bg-gradient-to-b from-white to-transparent"></section>
 
-			<section class="section-fade-to-bottom"></section>
-
-			<!-- Portfolio (MOVED HERE) -->
-			<section id="portfolio" class="section-padding">
-				<div class="container">
-					<h2>Portfolio</h2>
-					<div class="portfolio-grid">
-						<div class="portfolio-item" v-for="project in projects" :key="project.title">
-							<img :src="project.image" :alt="project.title" @click="openImage(project.image)" />
-							<div class="portfolio-content">
-								<h3>{{ project.title }}</h3>
-								<p>{{ project.description }}</p>
-								<div class="portfolio-links">
-									<a v-if="project.trailer" :href="project.trailer" target="_blank">Watch Trailer</a>
-									<a v-if="project.link" :href="project.link" target="_blank">Play Game</a>
+			<!-- Portfolio Section -->
+			<section id="portfolio" class="container py-20 text-center">
+				<div class="max-w-6xl mx-auto">
+					<h2 class="text-4xl font-semibold mb-12">Portfolio</h2>
+					<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+						<div v-for="project in projects" :key="project.title"
+							class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+							<img :src="project.image" :alt="project.title"
+								class="w-full aspect-video object-cover cursor-pointer hover:scale-105 transition-transform"
+								@click="openImage(project.image)">
+							<div class="p-6">
+								<h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
+								<p class="text-gray-600 mb-4">{{ project.description }}</p>
+								<div class="flex flex-wrap gap-3 justify-center">
+									<a v-if="project.trailer" :href="project.trailer" target="_blank"
+										class="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition">Watch
+										Trailer</a>
+									<a v-if="project.link" :href="project.link" target="_blank"
+										class="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition">Play
+										Game</a>
 								</div>
 							</div>
 						</div>
@@ -82,65 +112,75 @@
 				</div>
 			</section>
 
-			<!-- Skills -->
-			<section id="skills" class="section-padding">
-				<div class="container">
-					<h2>Skills</h2>
-					<div class="skills">
+			<!-- Skills Section -->
+			<section id="skills" class="container py-20 text-center relative overflow-hidden">
+				<div class="max-w-6xl mx-auto">
+					<h2 class="text-4xl font-semibold mb-12">Skills</h2>
+
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
 						<!-- Game Design -->
-						<div class="skill-box">
-							<div class="skill-icon">
-								<!-- Game Controller SVG -->
+						<div
+							class="skill-box snap-center bg-white rounded-xl shadow-lg p-9 hover:shadow-2xl transition-transform transform hover:-translate-y-1">
+							<div class="skill-icon mb-4 text-center">
 								<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-									stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto">
 									<path d="M6 12v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path>
 									<rect x="2" y="10" width="20" height="12" rx="2"></rect>
 									<path d="M16 16h-4"></path>
 									<path d="M12 14v4"></path>
 								</svg>
 							</div>
-							<h3>Game Design</h3>
-							<ul>
-								<li>Core mechanics & systems</li>
-								<li>Balance & progression</li>
-								<li>Player UX</li>
+							<h3 class="text-xl font-semibold mb-4">Game Design</h3>
+							<ul class="list-none space-y-2 pl-4 text-left">
+								<li class="flex items-start"><span class="mr-2 text-black">▸</span><span>Core mechanics
+										& systems</span></li>
+								<li class="flex items-start"><span class="mr-2 text-black">▸</span><span>Balance &
+										progression</span></li>
+								<li class="flex items-start"><span class="mr-2 text-black">▸</span><span>Player
+										UX</span></li>
 							</ul>
 						</div>
 
 						<!-- Development -->
-						<div class="skill-box">
-							<div class="skill-icon">
-								<!-- Code Icon SVG -->
+						<div
+							class="skill-box snap-center bg-white rounded-xl shadow-lg p-9 hover:shadow-2xl transition-transform transform hover:-translate-y-1">
+							<div class="skill-icon mb-4 text-center">
 								<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-									stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto">
 									<polyline points="16 18 22 12 16 6"></polyline>
 									<polyline points="8 6 2 12 8 18"></polyline>
 									<line x1="12" y1="6" x2="12" y2="18"></line>
 								</svg>
 							</div>
-							<h3>Development</h3>
-							<ul>
-								<li>Unity (C#)</li>
-								<li>Flash / ActionScript</li>
-								<li>JavaScript / Vue</li>
+							<h3 class="text-xl font-semibold mb-4">Development</h3>
+							<ul class="list-none space-y-2 pl-4 text-left">
+								<li class="flex items-start"><span class="mr-2 text-black">▸</span><span>Unity
+										(C#)</span></li>
+								<li class="flex items-start"><span class="mr-2 text-black">▸</span><span>Flash /
+										ActionScript</span></li>
+								<li class="flex items-start"><span class="mr-2 text-black">▸</span><span>JavaScript /
+										Vue</span></li>
 							</ul>
 						</div>
 
 						<!-- Platforms -->
-						<div class="skill-box">
-							<div class="skill-icon">
-								<!-- Design / Platform Icon SVG -->
+						<div
+							class="skill-box snap-center bg-white rounded-xl shadow-lg p-9 hover:shadow-2xl transition-transform transform hover:-translate-y-1">
+							<div class="skill-icon mb-4 text-center">
 								<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-									stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto">
 									<path d="M12 2l4 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"></path>
 								</svg>
 							</div>
-							<h3>Platforms</h3>
-							<ul>
-								<li>PC & Web</li>
-								<li>Mobile (Android / Tizen)</li>
-								<li>Browser Games</li>
+							<h3 class="text-xl font-semibold mb-4">Platforms</h3>
+							<ul class="list-none space-y-2 pl-4 text-left">
+								<li class="flex items-start"><span class="mr-2 text-black">▸</span><span>PC & Web</span>
+								</li>
+								<li class="flex items-start"><span class="mr-2 text-black">▸</span><span>Mobile (Android
+										/ Tizen)</span></li>
+								<li class="flex items-start"><span class="mr-2 text-black">▸</span><span>Browser
+										Games</span></li>
 							</ul>
 						</div>
 
@@ -148,62 +188,54 @@
 				</div>
 			</section>
 
-			<section class="section-fade-to-top"></section>
+
+
+			<!-- Fade to top -->
+			<section class="h-20 bg-gradient-to-t from-white to-transparent"></section>
 
 		</div>
 
-		<!-- Contact -->
-		<section id="contact" class="section-light">
-			<div class="container">
-				<h2>Contact</h2>
-				<div class="contact-items">
-
-					<!-- Email -->
-					<div class="contact-item">
-						<div class="contact-icon">
-							<!-- Email SVG -->
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-								stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M4 4h16v16H4z"></path>
-								<polyline points="22,6 12,13 2,6"></polyline>
-							</svg>
-						</div>
-						<div class="contact-text">
-							<a href="mailto:oke.vincent@gmail.com">oke.vincent@gmail.com</a>
-						</div>
+		<!-- Contact Section -->
+		<section id="contact" class="container py-20 bg-white text-center">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-4xl font-semibold mb-12">Contact</h2>
+				<div class="flex flex-wrap justify-center gap-10">
+					<div
+						class="flex items-center gap-4 bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition">
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M4 4h16v16H4z"></path>
+							<polyline points="22,6 12,13 2,6"></polyline>
+						</svg>
+						<a href="mailto:oke.vincent@gmail.com"
+							class="font-medium text-gray-900 hover:text-primary">oke.vincent@gmail.com</a>
 					</div>
 
-					<!-- LinkedIn -->
-					<div class="contact-item">
-						<div class="contact-icon">
-							<!-- LinkedIn SVG -->
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-								stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
-								<rect x="2" y="9" width="4" height="12"></rect>
-								<circle cx="4" cy="4" r="2"></circle>
-							</svg>
-						</div>
-						<div class="contact-text">
-							<a href="https://www.linkedin.com/in/vincentoke/"
-								target="_blank">linkedin.com/in/vincentoke</a>
-						</div>
+					<div
+						class="flex items-center gap-4 bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition">
+						<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+							<rect x="2" y="9" width="4" height="12"></rect>
+							<circle cx="4" cy="4" r="2"></circle>
+						</svg>
+						<a href="https://www.linkedin.com/in/vincentoke/" target="_blank"
+							class="font-medium text-gray-900 hover:text-primary">linkedin.com/in/vincentoke</a>
 					</div>
-
 				</div>
 			</div>
 		</section>
 
-
 		<!-- Footer -->
-		<footer>
+		<footer class="bg-darkbg text-white text-center py-6 mt-20">
 			<p>© 2026 Dhimas Prabowo Portfolio</p>
 		</footer>
 
 		<!-- Image Modal -->
-		<div class="image-modal" v-if="showModal" @click.self="closeImage">
-			<img :src="selectedImage" alt="Full preview">
-			<button class="modal-close" @click="closeImage">×</button>
+		<div class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-10" v-if="showModal"
+			@click.self="closeImage">
+			<img :src="selectedImage" alt="Full preview" class="max-w-4xl max-h-[90%] rounded-lg shadow-2xl">
+			<button @click="closeImage" class="absolute top-10 right-10 text-white text-5xl">&times;</button>
 		</div>
 
 	</div>
