@@ -1,21 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Your Name | Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+	<meta charset="UTF-8">
+	<title>Portfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
+
 <body>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+	<div id="app">
 
-    <h1>Hello, I'm Your Name</h1>
-    <p>This is my portfolio website.</p>
+		<!-- Header -->
+		<header>
+			<div class="container header-content">
+				<div class="logo">
+					<a href="#top" style="text-decoration: none; color: inherit;">Home</a>
+				</div>
+				<nav>
+					<a href="#portfolio">Portfolio</a>
+					<a href="#skills">Skills</a>
+					<a href="#contact">Contact</a>
+				</nav>
+			</div>
+		</header>
 
+
+		<!-- Hero -->
+		<section class="hero">
+			<div class="container hero-content">
+				<div class="hero-text">
+					<h1>Dhimas Prabowo</h1>
+					<p>
+						Experienced Game Developer & Designer crafting immersive strategy, RPG, and casual games.
+						Skilled in Unity, Flash, and web technologies, I build games that combine challenging mechanics
+						with engaging art and storytelling.
+					</p>
+					<p>
+						From award-winning mobile projects to complex Flash-era creations, I bring ideas to life with
+						innovative gameplay systems and memorable player experiences.
+					</p>
+				</div>
+				<div class="hero-image">
+					<img src="images/profile.jpg" alt="Profile">
+				</div>
+			</div>
+		</section>
+
+
+		<!-- PARALLAX BACKGROUND -->
+		<div class="parallax-wrapper">
+
+			<!-- About -->
+			<section class="section-light about">
+				<div class="container">
+					
+				</div>
+			</section>
+
+			<!-- Portfolio (MOVED HERE) -->
+			<section id="portfolio">
+				<div class="container">
+					<h2>Portfolio</h2>
+					<div class="portfolio-grid">
+						<div class="portfolio-item" v-for="project in projects" :key="project.title">
+							<img :src="project.image" :alt="project.title" @click="openImage(project.image)" />
+							<div class="portfolio-content">
+								<h3>{{ project.title }}</h3>
+								<p>{{ project.description }}</p>
+								<div class="portfolio-links">
+									<a v-if="project.trailer" :href="project.trailer" target="_blank">Watch Trailer</a>
+									<a v-if="project.link" :href="project.link" target="_blank">Play Game</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Skills -->
+			<section id="skills" class="section-light">
+				<div class="container">
+					<h2>Skills</h2>
+					<div class="skills">
+
+						<!-- Game Design -->
+						<div class="skill-box">
+							<div class="skill-icon">
+								<!-- Game Controller SVG -->
+								<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M6 12v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path>
+									<rect x="2" y="10" width="20" height="12" rx="2"></rect>
+									<path d="M16 16h-4"></path>
+									<path d="M12 14v4"></path>
+								</svg>
+							</div>
+							<h3>Game Design</h3>
+							<ul>
+								<li>Core mechanics & systems</li>
+								<li>Balance & progression</li>
+								<li>Player UX</li>
+							</ul>
+						</div>
+
+						<!-- Development -->
+						<div class="skill-box">
+							<div class="skill-icon">
+								<!-- Code Icon SVG -->
+								<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="16 18 22 12 16 6"></polyline>
+									<polyline points="8 6 2 12 8 18"></polyline>
+									<line x1="12" y1="6" x2="12" y2="18"></line>
+								</svg>
+							</div>
+							<h3>Development</h3>
+							<ul>
+								<li>Unity (C#)</li>
+								<li>Flash / ActionScript</li>
+								<li>JavaScript / Vue</li>
+							</ul>
+						</div>
+
+						<!-- Platforms -->
+						<div class="skill-box">
+							<div class="skill-icon">
+								<!-- Design / Platform Icon SVG -->
+								<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M12 2l4 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"></path>
+								</svg>
+							</div>
+							<h3>Platforms</h3>
+							<ul>
+								<li>PC & Web</li>
+								<li>Mobile (Android / Tizen)</li>
+								<li>Browser Games</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+
+		</div>
+
+		<!-- Contact -->
+		<section id="contact" class="section-light">
+			<div class="container">
+				<h2>Contact</h2>
+				<div class="contact-items">
+
+					<!-- Email -->
+					<div class="contact-item">
+						<div class="contact-icon">
+							<!-- Email SVG -->
+							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+								stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M4 4h16v16H4z"></path>
+								<polyline points="22,6 12,13 2,6"></polyline>
+							</svg>
+						</div>
+						<div class="contact-text">
+							<a href="mailto:oke.vincent@gmail.com">oke.vincent@gmail.com</a>
+						</div>
+					</div>
+
+					<!-- LinkedIn -->
+					<div class="contact-item">
+						<div class="contact-icon">
+							<!-- LinkedIn SVG -->
+							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+								stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+								<rect x="2" y="9" width="4" height="12"></rect>
+								<circle cx="4" cy="4" r="2"></circle>
+							</svg>
+						</div>
+						<div class="contact-text">
+							<a href="https://www.linkedin.com/in/vincentoke/"
+								target="_blank">linkedin.com/in/vincentoke</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+
+		<!-- Footer -->
+		<footer>
+			<p>© 2026 Dhimas Prabowo Portfolio</p>
+		</footer>
+
+		<!-- Image Modal -->
+		<div class="image-modal" v-if="showModal" @click.self="closeImage">
+			<img :src="selectedImage" alt="Full preview">
+			<button class="modal-close" @click="closeImage">×</button>
+		</div>
+
+	</div>
+
+	<script src="js/app.js"></script>
 </body>
+
 </html>

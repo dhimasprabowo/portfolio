@@ -1,0 +1,91 @@
+{
+	"projects": [
+		{
+			"title": "Ojol Life",
+			"image": "images/ojol-life.jpg",
+			"description": "I'm a part of the team develop and mantaining this mobile simulation game by Maleo Game that simulates the life of an online motorcycle taxi driver, including rides, deliveries, and daily challenges.",
+			"trailer": "https://www.youtube.com/watch?v=uALMn4XN6nM",
+			"link": "https://play.google.com/store/apps/details?id=com.maleo.ojollife&hl=id"
+		},
+		{
+			"title": "Bus Simulator Indonesia",
+			"image": "images/bussid.jpg",
+			"description": "I'm a part of the team develop and mantaining simulation game by Maleo Game where players drive buses across realistic maps. This game has more than 100 millions download and still active.",
+			"trailer": "https://www.youtube.com/watch?v=DCaUu-UI53I",
+			"link": "https://play.google.com/store/apps/details?id=com.maleo.bussimulatorid&hl=id&pli=1"
+		},
+		{
+			"title": "Pirate Mobile War (Unpublished)",
+			"image": "images/pirate-mobile-war.jpg",
+			"description": "A complex 3D mobile strategy game with a strong storyline and planned real-time multiplayer features.",
+			"trailer": "https://www.youtube.com/watch?v=i460EQ9ftSM"
+		},
+		{
+			"title": "Nonstop Show",
+			"image": "images/nonstop-show.jpg",
+			"description": "A mobile idle game with a street musician theme. Available worldwide on Google Play and localized in English and Indonesian. Nominated for Indie Prize Casual Connect Asia 2017 and Google Indonesia Game Contest 2017.",
+			"link": "https://play.google.com/store/apps/details?id=com.wisageni.NgamenNonstop",
+			"trailer": "https://www.youtube.com/watch?v=xewArHRX2To&t=2s"
+		},
+		{
+			"title": "Crazy Cargo",
+			"image": "images/crazy-cargo.jpg",
+			"description": "A Unity-based game developed exclusively for Samsung Tizen. Winner of 1st Prize at Samsung INA 4.0 (2017).",
+			"trailer": "https://www.youtube.com/watch?v=olr3AKk87Ac"
+		},
+		{
+			"title": "Ultimate Tower",
+			"image": "images/ultimate-tower.png",
+			"description": "One of my most ambitious Flash projects featuring complex mechanics and award-winning gameplay.",
+			"trailer": "https://www.youtube.com/watch?v=VYMw1RifmdQ"
+		},
+		{
+			"title": "Condo Tail (Unpublished)",
+			"image": "images/condo-tail.jpg",
+			"description": "Planned to combine SIMS-like and very popular Tamagochi game into a mobile game. The project is ambisious and unique experiment.",
+			"trailer": "https://www.youtube.com/watch?v=IOUdU4TmwWQ"
+		},
+		{
+			"title": "Conjurer",
+			"image": "images/conjurer.jpg",
+			"description": "An RPG Flash game inspired by Diablo, featuring fast-paced combat and progression. Sponsored by Armor Games.",
+			"link": "https://armorgames.com/play/18085/conjurer"
+		},
+		{
+			"title": "Lynn Love",
+			"image": "images/lynn-love.jpg",
+			"description": "A story-driven clicker game with a unique art style and smooth animation that gained attention from game reviewers.",
+			"trailer": "http://www.youtube.com/watch?v=dsaSxlZ28ZI"
+		},
+		{
+			"title": "Squadron Auriga",
+			"image": "images/squadron-auriga.jpg",
+			"description": "A flagship RTS project from Funever Studio featuring complex mechanics and a deep storyline designed for hardcore strategy players.",
+			"trailer": "https://www.youtube.com/watch?v=o9ZWHgcMjHc"
+		},
+		{
+			"title": "Super Playboy",
+			"image": "images/super-playboy.jpg",
+			"description": "A beat ’em up fighting game with a strong storyline, comic-style visuals, and humorous effects that attracted significant attention among Flash gamers.",
+			"trailer": "http://www.youtube.com/watch?v=Oyi-NvuZT7U"
+		},
+		{
+			"title": "Jumping Little Ninja",
+			"image": "images/jumping-little-ninja.jpg",
+			"description": "A highly popular skill-based game featuring upgrade systems and a cartoon art style designed to appeal to casual gamers.",
+			"link": "https://www.dailynetgames.com/free-game/22357/Jumping-Little-Ninja.htm"
+		},
+		{
+			"title": "Soul Job",
+			"image": "images/soul-job.jpg",
+			"description": "A skill-based sandbox game inspired by popular Flash-era genres, focusing on player precision and experimentation.",
+			"link": "https://www.kongregate.com/zh-cn/games/rapidojeux/soul-job?permalink=soul-job&uploaded_by=rapidojeux"
+		},
+		{
+			"title": "The Last Village",
+			"image": "images/the-last-village.jpg",
+			"description": "A strategy game with a beautiful art style that combines real-time and turn-based mechanics, creating a complex and challenging gameplay experience.",
+			"trailer": "https://www.youtube.com/watch?v=szB7ATxO4qQ"
+		}
+	]
+}
